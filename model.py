@@ -17,3 +17,20 @@ x_train = ppd_res['x_train']
 y_train = ppd_res['y_train']
 x_test = ppd_res['x_test']
 y_test = ppd_res['y_test']
+
+# CNN Model
+from CNNModel import cnn_model
+model = cnn_model()
+
+batch_size = 128
+epochs = 10
+model.fit(x_train, 
+          y_train, 
+          batch_size = batch_size,
+          epochs = epochs,
+          verbose=1,
+          validation_data = (x_test, y_test))
+print("The model has successfully trained :)")
+
+model.save('pickle_model.h5')
+print('Saving the model as pickle_model.h5')
