@@ -18,9 +18,22 @@ y_train = ppd_res['y_train']
 x_test = ppd_res['x_test']
 y_test = ppd_res['y_test']
 
+x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
+x_test = x_test.reshape(x_test.shape[0], 28, 28, 1)
+
+    
+num_classes = 10
+y_train = keras.utils.to_categorical(y_train, num_classes)
+y_test = keras.utils.to_categorical(y_test, num_classes)
+    
+x_train = x_train.astype('float32')
+x_test = x_test.astype('float32')
+x_train /= 255
+x_test /= 255
+
 # CNN Model
-from CNNModel import cnn_model
-model = cnn_model()
+from cnn_model import f_cnn_model
+model = f_cnn_model()
 
 batch_size = 128
 epochs = 10
