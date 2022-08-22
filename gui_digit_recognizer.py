@@ -2,7 +2,7 @@ from keras.models import load_model
 from tkinter import *
 import tkinter as tk
 import win32gui
-from PIL import ImageGrab, Image
+from PIL import ImageGrab
 import numpy as np
 
 model = load_model('pickle_model.h5')
